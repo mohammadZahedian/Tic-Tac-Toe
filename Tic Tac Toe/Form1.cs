@@ -27,5 +27,11 @@ namespace Tic_Tac_Toe
             fr_3x3 fr = new fr_3x3();
             fr.ShowDialog();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            fr_4x4 fr = new fr_4x4();
+            fr.ShowDialog();
+        }
     }
 }
