@@ -23,16 +23,12 @@ namespace Tic_Tac_Toe
         {
             int sum;
             int isWin = -1;
-            int counter = 0;
 
             for (int ExRow = 0; ExRow <= over3; ExRow++)
             {
                 for (int ExCloun = 0; ExCloun <= over3; ExCloun++)
                 {
-
-
-
-
+                    
                     //rows
                     for (int a = 0; a < 2; a++)
                     {
@@ -113,7 +109,7 @@ namespace Tic_Tac_Toe
                             //1st player
                             if (a == 0)
                             {
-                                sum += situation[0, i, 3 - 1 - i];
+                                sum += situation[0, i + ExRow , 3 - 1 - i + ExCloun];
                                 if (sum == 3)
                                 {
                                     isWin = 0;
@@ -123,7 +119,7 @@ namespace Tic_Tac_Toe
                             //2nd player
                             if (a == 1)
                             {
-                                sum += situation[1, i, 3 - 1 - i];
+                                sum += situation[1, i + ExRow, 3 - 1 - i + ExCloun];
                                 if (sum == 3)
                                 {
                                     isWin = 1;
@@ -137,12 +133,12 @@ namespace Tic_Tac_Toe
                     for (int a = 0; a < 2; a++)
                     {
                         sum = 0;
-                        for (int i = 0 + ExCloun; i < 3 + ExCloun; i++)
+                        for (int i = 0; i < 3; i++)
                         {
                             //1st player
                             if (a == 0)
                             {
-                                sum += situation[0, i, i];
+                                sum += situation[0, i + ExRow, i + ExCloun];
                                 if (sum == 3)
                                 {
                                     isWin = 0;
@@ -152,7 +148,7 @@ namespace Tic_Tac_Toe
                             //2nd player
                             if (a == 1)
                             {
-                                sum += situation[1, i, i];
+                                sum += situation[1, i + ExRow, i + ExCloun];
                                 if (sum == 3)
                                 {
                                     isWin = 1;

@@ -65,6 +65,7 @@
     <Compile Include="fr_4x4.Designer.cs">
       <DependentUpon>fr_4x4.cs</DependentUpon>
     </Compile>
+    <Compile Include="point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

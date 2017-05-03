@@ -8,10 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Tic_Tac_Toe
 {
     public partial class fr_4x4 : Form
     {
+        public string Name1 { get; set;}
+        public string Name2 { get; set; }
+
+
         public fr_4x4()
         {
             InitializeComponent();
@@ -70,13 +75,14 @@ namespace Tic_Tac_Toe
             //first player won
             if (winner == 0)
             {
-                MessageBox.Show("majid");
+                MessageBox.Show(Name1);
+                point.pointPlayer1++;
             }
 
             //second player won
             if (winner == 1)
             {
-                MessageBox.Show("mamad");
+                MessageBox.Show(Name2);
             }
 
             //game is pot
@@ -93,5 +99,9 @@ namespace Tic_Tac_Toe
 
         }
 
+        private void fr_4x4_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

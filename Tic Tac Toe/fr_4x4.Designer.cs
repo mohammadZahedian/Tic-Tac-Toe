@@ -262,6 +262,7 @@
             this.Controls.Add(this.button1);
             this.Name = "fr_4x4";
             this.Text = "fr_4x4";
+            this.Load += new System.EventHandler(this.fr_4x4_Load);
             this.ResumeLayout(false);
 
         }

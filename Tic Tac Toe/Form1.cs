@@ -17,10 +17,6 @@ namespace Tic_Tac_Toe
             InitializeComponent();
         }
 
-        private void Select_area_form_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -31,7 +27,14 @@ namespace Tic_Tac_Toe
         private void button1_Click_1(object sender, EventArgs e)
         {
             fr_4x4 fr = new fr_4x4();
+            fr.Name1 = "mamad";// textBox1.Text;
+            fr.Name2 = textBox2.Text;
             fr.ShowDialog();
+        }
+
+        private void Select_area_form_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
