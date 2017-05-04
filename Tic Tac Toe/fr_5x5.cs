@@ -8,19 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Tic_Tac_Toe
 {
-    public partial class fr_4x4 : Form
+    public partial class fr_5x5 : Form
     {
-
-        public fr_4x4()
+        public fr_5x5()
         {
             InitializeComponent();
             Storage.turn = 0;
         }
+
         //...................................................
-        static int Game_Size = 4;
+        static int Game_Size = 5;
         int[,,] Situation = new int[2, Game_Size, Game_Size];
         int winner = -1;
 
@@ -158,10 +157,6 @@ namespace Tic_Tac_Toe
 
                 }
             }
-        }
-        private void fr_4x4_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

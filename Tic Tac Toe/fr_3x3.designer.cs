@@ -77,6 +77,7 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.Gainsboro;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(185, 174);
             this.button4.Name = "button4";
@@ -84,7 +85,7 @@
             this.button4.TabIndex = 5;
             this.button4.TabStop = false;
             this.button4.Tag = "2,2";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.buttons_Click);
             // 
             // button5
@@ -138,6 +139,7 @@
             // button9
             // 
             this.button9.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.button9.BackColor = System.Drawing.Color.Transparent;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.Location = new System.Drawing.Point(27, 22);
             this.button9.Name = "button9";
@@ -145,14 +147,14 @@
             this.button9.TabIndex = 6;
             this.button9.TabStop = false;
             this.button9.Tag = "0,0";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.buttons_Click);
             // 
             // fr_3x3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 267);
+            this.ClientSize = new System.Drawing.Size(274, 342);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button9);

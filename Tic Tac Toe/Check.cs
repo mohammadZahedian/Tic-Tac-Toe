@@ -9,13 +9,66 @@ namespace Tic_Tac_Toe
 
     public static class Check
     {
+
+        public static string Last_Location_checked;
+        public static int Last_ROW_checked;
+        public static int Last_COLUMN_checked;
         public static int winner(int[,,] situation, int length)
         {
             int over3 = length - 3;
-            int numberOfCheck = (over3 + 1) * (over3 + 1);
+            //int numberOfCheck = (over3 + 1) * (over3 + 1);
 
             return winner3X3(situation, over3);
 
+
+        }
+
+
+        public static string[] Winner_line_location()
+        {
+            if (Last_Location_checked == "Row")
+            {
+
+                string[] a = new string[3]
+                {
+                Last_ROW_checked.ToString()+","+ Last_COLUMN_checked.ToString() ,
+                Last_ROW_checked.ToString()+","+ (Last_COLUMN_checked - 1).ToString(),
+                Last_ROW_checked.ToString()+"," +(Last_COLUMN_checked - 2).ToString()
+                };
+        return a;
+            }
+            if (Last_Location_checked == "Column")
+            {
+                string[] a = new string[3]
+             {
+                Last_ROW_checked.ToString()+","+ Last_COLUMN_checked.ToString() ,
+                (Last_ROW_checked-1).ToString()+","+ (Last_COLUMN_checked ).ToString(),
+                (Last_ROW_checked-2).ToString()+"," +(Last_COLUMN_checked ).ToString()
+             };
+                return a;
+            }
+            if (Last_Location_checked == "R_Diameter")
+            {
+                string[] a = new string[3]
+             {
+                Last_ROW_checked.ToString()+","+ Last_COLUMN_checked.ToString() ,
+                (Last_ROW_checked-1).ToString()+","+ (Last_COLUMN_checked+1 ).ToString(),
+                (Last_ROW_checked-2).ToString()+"," +(Last_COLUMN_checked +2).ToString()
+             };
+                return a;
+            }
+            if (Last_Location_checked == "L_Diameter")
+            {
+                string[] a = new string[3]
+             {
+                Last_ROW_checked.ToString()+","+ Last_COLUMN_checked.ToString() ,
+                (Last_ROW_checked-1).ToString()+","+ (Last_COLUMN_checked-1 ).ToString(),
+                (Last_ROW_checked-2).ToString()+"," +(Last_COLUMN_checked -2).ToString()
+             };
+                return a;
+            }
+            string[] s = new string[2] { "a", "d" };
+            return s;
 
         }
 
@@ -26,9 +79,9 @@ namespace Tic_Tac_Toe
 
             for (int ExRow = 0; ExRow <= over3; ExRow++)
             {
-                for (int ExCloun = 0; ExCloun <= over3; ExCloun++)
+                for (int Excolumn = 0; Excolumn <= over3; Excolumn++)
                 {
-                    
+
                     //rows
                     for (int a = 0; a < 2; a++)
                     {
@@ -36,7 +89,7 @@ namespace Tic_Tac_Toe
                         for (int i = 0 + ExRow; i < 3 + ExRow; i++)
                         {
                             sum = 0;
-                            for (int j = 0 + ExCloun; j < 3 + ExCloun; j++)
+                            for (int j = 0 + Excolumn; j < 3 + Excolumn; j++)
                             {
                                 //1st player
                                 if (a == 0)
@@ -44,6 +97,9 @@ namespace Tic_Tac_Toe
                                     sum += situation[0, i, j];
                                     if (sum == 3)
                                     {
+                                        Last_Location_checked = "Row";
+                                        Last_ROW_checked = i;
+                                        Last_COLUMN_checked = j;
                                         isWin = 0;
                                         return isWin;
                                     }
@@ -55,6 +111,9 @@ namespace Tic_Tac_Toe
                                     sum += situation[1, i, j];
                                     if (sum == 3)
                                     {
+                                        Last_Location_checked = "Row";
+                                        Last_ROW_checked = i;
+                                        Last_COLUMN_checked = j;
                                         isWin = 1;
                                         return isWin;
                                     }
@@ -72,7 +131,7 @@ namespace Tic_Tac_Toe
                         for (int i = 0 + ExRow; i < 3 + ExRow; i++)
                         {
                             sum = 0;
-                            for (int j = 0 + ExCloun; j < 3 + ExCloun; j++)
+                            for (int j = 0 + Excolumn; j < 3 + Excolumn; j++)
                             {
                                 //1st player
                                 if (a == 0)
@@ -80,6 +139,9 @@ namespace Tic_Tac_Toe
                                     sum += situation[0, j, i];
                                     if (sum == 3)
                                     {
+                                        Last_ROW_checked = j;
+                                        Last_COLUMN_checked = i;
+                                        Last_Location_checked = "Column";
                                         isWin = 0;
                                         return isWin;
                                     }
@@ -88,9 +150,13 @@ namespace Tic_Tac_Toe
                                 //2nd player
                                 if (a == 1)
                                 {
+
                                     sum += situation[1, j, i];
                                     if (sum == 3)
                                     {
+                                        Last_Location_checked = "Column";
+                                        Last_ROW_checked = j;
+                                        Last_COLUMN_checked = i;
                                         isWin = 1;
                                         return isWin;
                                     }
@@ -109,9 +175,12 @@ namespace Tic_Tac_Toe
                             //1st player
                             if (a == 0)
                             {
-                                sum += situation[0, i + ExRow , 3 - 1 - i + ExCloun];
+                                sum += situation[0, i + ExRow, 3 - 1 - i + Excolumn];
                                 if (sum == 3)
                                 {
+                                    Last_Location_checked = "R_Diameter";
+                                    Last_ROW_checked = i + ExRow;
+                                    Last_COLUMN_checked = 3 - 1 - i + Excolumn;
                                     isWin = 0;
                                     return isWin;
                                 }
@@ -119,9 +188,12 @@ namespace Tic_Tac_Toe
                             //2nd player
                             if (a == 1)
                             {
-                                sum += situation[1, i + ExRow, 3 - 1 - i + ExCloun];
+                                sum += situation[1, i + ExRow, 3 - 1 - i + Excolumn];
                                 if (sum == 3)
                                 {
+                                    Last_Location_checked = "R_Diameter";
+                                    Last_ROW_checked = i + ExRow;
+                                    Last_COLUMN_checked = 3 - 1 - i + Excolumn;
                                     isWin = 1;
                                     return isWin;
                                 }
@@ -138,9 +210,12 @@ namespace Tic_Tac_Toe
                             //1st player
                             if (a == 0)
                             {
-                                sum += situation[0, i + ExRow, i + ExCloun];
+                                sum += situation[0, i + ExRow, i + Excolumn];
                                 if (sum == 3)
                                 {
+                                    Last_Location_checked = "L_Diameter";
+                                    Last_ROW_checked = i + ExRow;
+                                    Last_COLUMN_checked = i + Excolumn;
                                     isWin = 0;
                                     return isWin;
                                 }
@@ -148,9 +223,12 @@ namespace Tic_Tac_Toe
                             //2nd player
                             if (a == 1)
                             {
-                                sum += situation[1, i + ExRow, i + ExCloun];
+                                sum += situation[1, i + ExRow, i + Excolumn];
                                 if (sum == 3)
                                 {
+                                    Last_Location_checked = "L_Diameter";
+                                    Last_ROW_checked = i + ExRow;
+                                    Last_COLUMN_checked = i + Excolumn;
                                     isWin = 1;
                                     return isWin;
                                 }

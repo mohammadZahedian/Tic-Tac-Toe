@@ -16,7 +16,9 @@ namespace Tic_Tac_Toe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Select_area_form());
+            Application.Run(new fr_main());
+            Application.Run(new fr_Select_Size());
+
         }
     }
 }
